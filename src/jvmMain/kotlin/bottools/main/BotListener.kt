@@ -21,26 +21,6 @@ internal class BotListener : ListenerAdapter() {
     private val ignoredChannels = ArrayList<MessageChannel>()
     internal val responder:Responder = Responder()
 
-    init {
-        Parser addTrigger "/"
-        responder newGuildMemberJoinAction this::defaultOnGuildMemberJoinAction
-    }
-
-    private fun defaultOnGuildMemberJoinAction(event: GuildMemberJoinEvent) {
-        log.info("The user {} has joined the guild {}", event.user.name, event.guild.name)
-        D.updateServerDatabase()
-        log.info("Guild member database has been updated")
-
-        // Gives the new guild member the specified default role
-        log.info("Adding the default role to the new member")
-        event.guild.let {
-            with(it.getRoleById(D / it - "defaultrole")) {
-                it.addRoleToMember(event.member, this!!).complete()
-            }
-        }
-    }
-
-    private fun startsWithTrigger(event: MessageReceivedEvent) = Parser `starts with trigger` event.message.contentRaw
     fun ignoreChannel(channel: MessageChannel) = ignoredChannels.add(channel)
     fun unignoreChannel(channel: MessageChannel) = ignoredChannels.remove(channel)
     infix fun ignore(channel: MessageChannel) = ignoreChannel(channel)
@@ -48,7 +28,7 @@ internal class BotListener : ListenerAdapter() {
     operator fun minus(channel: MessageChannel) = this ignore channel
     operator fun plus(channel: MessageChannel) = this listenTo channel
     override fun onMessageReceived(event: MessageReceivedEvent) {
-        if (startsWithTrigger(event) and (event.channel !in ignoredChannels))
+        if (event.channel !in ignoredChannels)
             responder reactTo event
     }
     override fun onGuildJoin(event: GuildJoinEvent) = responder reactTo event

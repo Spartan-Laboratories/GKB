@@ -9,6 +9,9 @@ import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 abstract class GameStatsCommand
      protected constructor(protected var gameName: String, primaryAddress:String="")
     : OnlineCommand(gameName, primaryAddress) {
+    override var brief = "A command provides information related to the game $gameName"
+    override var details = ""
+    override val detailStatement = "This command is oriented around providing various subcommands related to a specific game."
     protected var tagSymbol = "#"
     protected val userOption            = Option("user", "person", "the server member whose game you want to see", false);
     protected val targetMemberOption    = Option("user", "person", "the person whose game id you want to set", false)
@@ -22,7 +25,7 @@ abstract class GameStatsCommand
     init {
         //  Command setup
         subCommandRequired = true
-        makeInteractible()
+        makeInteractive()
         // Subcommands
         SCSetID()
         SCGetID()
@@ -36,15 +39,12 @@ abstract class GameStatsCommand
         //show.addCommand("id", "getid").addCommand("stats", "showstats")
     }
     protected inner class SCSetID() : SubCommand("setid", this@GameStatsCommand) {
+        override val brief = "sets the game id of the mentioned user"
+        override val details =
+            """"For example:
+            `${this@GameStatsCommand.name} setid *in-game id* @forthisperson` to set the ID for the mentioned user. Or"
+            `${this@GameStatsCommand.name} setid *in-game id*` to set the ID for yourself""".trimIndent()
         init {
-            helpMessage = ("""sets the game id of the mentioned user"
-                    "For example:"
-                    ${this@GameStatsCommand.name} setid *in-game id* @forthisperson` to set the ID for the mentioned user. Or"
-                    ${this@GameStatsCommand.name} setid *in-game id*` to set the ID for yourself""".trimIndent())
-            init()
-        }
-
-        fun init() {
             val id = Option("string", "id", "the $gameName id", true)
             val tagline = Option("string", "tagline", "the tag number associated with this id", false)
             this + id + tagline + targetMemberOption
@@ -61,8 +61,9 @@ abstract class GameStatsCommand
     }
 
     inner class SCGetID() : SubCommand("getid", this@GameStatsCommand) {
+        override val brief: String = "Shows the recorded game ID for the mentioned user or for yourself if no user is mentioned"
+        override val details: String = ""
         init {
-            helpMessage = "Shows the recorded game ID for the mentioned user or for yourself if no user is mentioned"
             this + targetMemberOption
         }
 
@@ -103,7 +104,7 @@ abstract class GameStatsCommand
     }
     protected open infix fun postPatchNotes(value: Array<String>){}
     protected fun createPatchNotesService() = ServiceCommand.createService("game services/$gameName/patch notes", ::postPatchNotes, 10)
-    protected fun createdUserGamesService() = UserGameService.createService(gameName, ::userGameServiceTrigger, 60)
+    protected fun createUserGamesService() = UserGameService.createService(gameName, ::userGameServiceTrigger, 60)
     override fun getValueFromKey(key: String?): String = super.getValueFromKey("$gameName:$key")
 }
 

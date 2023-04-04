@@ -3,8 +3,10 @@ package bottools.commands
 import bottools.main.Bot
 
 class HelpCommand : Command("help") {
+    override val brief = "See what this bot can do"
+    override val details = "Gives a detailed description of this Bot's capabilities"
     init {
-        makeInteractible().description = "See what this bot can do"
+        makeInteractive()
     }
 
     public override fun invoke(args: Array<String>){

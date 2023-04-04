@@ -5,6 +5,8 @@ import it.skrape.fetcher.response
 import it.skrape.fetcher.skrape
 
 class ServiceCommand(serviceName: String) : CheckValueService(serviceName) {
+    override val brief = "service"
+    override val details = ""
     override operator fun invoke() {
         data = skrape(BrowserFetcher){
             request{

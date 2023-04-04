@@ -11,6 +11,7 @@ import bottools.commands.HelpCommand
 import bottools.dataprocessing.B
 import bottools.dataprocessing.D
 import bottools.main.Parser.CommandContainer
+import bottools.plugins.Plugin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -75,6 +76,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         // Bot setup
         initializeBotExistence()
         addInteractionResponses()
+        Parser addTrigger "/"
 
         // My Systems again
         D.updateServerDatabase() //Must be after bot and console initialization
@@ -184,7 +186,8 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         var commands = HashMap<String, Command>()
             protected set
         private val interactions = ArrayList<CommandData>()
-        val responder by lazy{listener.responder}
+        val responder by lazy { listener.responder }
+
         //var guildManager: GuildManager = GuildManager
         var commandNameList = ArrayList<String>()
         var keys = arrayOfNulls<String>(3)
@@ -198,7 +201,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         private fun handleCommand(commandText: CommandContainer, event: MessageReceivedEvent) {
             val commandName = commandText.commandName
             val channel = event.channel
-            if(commands.containsKey(commandName)){
+            if (commands.containsKey(commandName)) {
                 try {
                     commands[commandName]!!.setEvent(event).invoke(commandText)
                 } catch (ipe: InsufficientPermissionException) {
@@ -219,7 +222,10 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
             running = false
         }
 
-        private infix fun handleCommand(event: MessageReceivedEvent) = handleCommand(Parser parse event, event)
+        private infix fun handleCommand(event: MessageReceivedEvent) {
+            if (Parser `starts with trigger` event.message.contentRaw)
+                handleCommand(Parser parse event, event)
+        }
         private infix fun handleCommand(event: SlashCommandInteractionEvent) = commands[event.name]!!(event)
 
         private infix fun handleCommand(event: UserContextInteractionEvent) = commands[event.name]!!(event)

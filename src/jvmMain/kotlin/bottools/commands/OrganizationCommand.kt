@@ -4,6 +4,8 @@ import bottools.main.Parser.CommandContainer
 
 
 class OrganizationCommand(name: String, parent:Command) : SubCommand(name, parent) {
+    override var brief = "This should not be visible"
+    override var details = brief
     private val orgCommands = HashMap<String, String>()
     data class orgData(val alias: String, val trueName: String)
     init {

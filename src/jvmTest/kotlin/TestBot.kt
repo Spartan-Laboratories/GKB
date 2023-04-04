@@ -90,7 +90,8 @@ private fun dateField(date:String){
 }
 class KotBot(tokenState:MutableState<Boolean>) : Bot(tokenState) {
     override fun listCommands() {
-        Plugins.REACTIONROLES()
+        Plugins.`REACTION ROLES`()
+        Plugins.Math()
         Bot createCommand DotaCommand()
     }
 

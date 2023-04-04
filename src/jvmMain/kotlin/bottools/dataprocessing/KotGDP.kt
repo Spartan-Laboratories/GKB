@@ -1,11 +1,10 @@
 package bottools.dataprocessing
 
-import bottools.main.Bot
-import bottools.main.newGuildJoinAction
-import bottools.main.newGuildMemberJoinAction
-import bottools.main.newGuildUpdateNameAction
+import bottools.main.*
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.entities.Member
+import net.dv8tion.jda.api.events.guild.update.GuildUpdateNameEvent
+import org.apache.commons.lang3.tuple.ImmutablePair
 import org.slf4j.LoggerFactory
 import org.w3c.dom.Node
 import java.io.File
@@ -24,26 +23,22 @@ class KotGDP(private val reader : BaseXMLReader = BaseXMLReader()) : XMLReader b
 
     init{
         Bot.responder.apply{
-            newGuildUpdateNameAction    {with(it){
-                File("guildData/${oldName}").renameTo(File("guildData/${newName}"))
-            } }
-            newGuildJoinAction          {with(it){
-                createGuildDatabase(guild)
-            } }
-            newGuildMemberJoinAction    {with(it){
+            newGuildUpdateNameAction(                   ::`change server name`)
+            newGuildJoinAction          {with(it.guild, ::createGuildDatabase)}
+            newGuildMemberJoinAction    {with(it){with(guild){
                 updateServerDatabase()
-                with(guild){
-                    getRoleById(D/guild-"defaultrole").let{role->
-                        addRoleToMember(member, role!!).complete()
-                    }
+                getRoleById(D/guild-"defaultrole").let{role->
+                    addRoleToMember(member, role!!).complete()
                 }
-            } }
+            } } }
         }
     }
 
     fun openFile(fileName: String) = DataAccessPoint(reader setDocument fileName)
     operator fun div(guild: Guild) = this inServer guild
     infix fun inServer(guild:Guild) = GuildDataAccessPoint(guild)
+    private infix fun `change server name` (event: GuildUpdateNameEvent) = renameFolder(event.oldName, event.newName)
+    private fun renameFolder(oldPath:String, newPath:String) = File(oldPath).renameTo(File(newPath))
 
     fun createGuildDatabase(guild: Guild) {
         val guildPath = "guildData/${guild.name}"

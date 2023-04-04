@@ -9,10 +9,11 @@ import net.dv8tion.jda.api.entities.emoji.Emoji
 import org.slf4j.LoggerFactory
 
 class AddReactionRole : Command("addreactionrole") {
+    override val brief = "Use this command to tie a server emote to a role"
+    override val details = ""
     private val log = LoggerFactory.getLogger(this::class.java)
     init {
-        helpMessage = "Use this command to tie a server emote to a role"
-        makeInteractible()
+        makeInteractive()
         this + Option("string", "emote", "the reaction emote that you want tied to a role", true) +
         Option("role", "role", "the role that you want to be given on reaction", true)
     }

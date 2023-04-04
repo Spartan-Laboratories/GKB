@@ -31,7 +31,8 @@ import kotlin.collections.set
  *  *  have a constructor that calls **super()** and sets the command name using [.setCommandName] as well as adds any possible
  * aliases using [.addAlias]
  *
- * <h6>Use:</h6><pre>CommandName **extends** Command{
+ * <h6>Use:</h6><br>
+ * <code>CommandName **extends** Command{
  * **public** CommandName(){
  * **super**();
  * setCommandName("commandname");
@@ -42,21 +43,29 @@ import kotlin.collections.set
  * return true;
  * }
  * }
-</pre> *
+</code> *
  * <br></br>
  *
  * @author spartak
  */
 abstract class Command protected constructor(val name: String) {
-    /**
-     * Should this command display messages describing the actions that it is taking.
-     * <br></br>**true** to display debug messages
-     * <br></br>**false** to not display error messages (default)
-     */
-    protected var debug = true
+    /*--------------I AM--------------------------------*/
+
+    protected abstract val brief : String
+    protected abstract val details: String
+    protected open val detailStatement = ""
+    private val basicDescription = "$name: $brief"
+    open var helpMessage: String? = "$basicDescription/n$details"
+        protected set
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    /*---------EVENT INFORMATION------------------------*/
     open lateinit var guild: Guild
-    //protected infix fun setGuild(guild:Guild) = this.also { this.guild = guild }
-    protected lateinit var member: Member
+    open lateinit var channel: MessageChannel
+    open lateinit var message: Message
+    open lateinit var user: User
+    open lateinit var member: Member
+    open lateinit var tagged : List<Member>
     open val targetMember: Member?
         get() {
             return scEvent?.getOptionsByType(OptionType.USER)?.let{
@@ -64,12 +73,7 @@ abstract class Command protected constructor(val name: String) {
                 else            null
             } ?: member
         }
-    protected lateinit var user: User
-        private set
-    open lateinit var channel: MessageChannel
-        infix fun setChannel(channel : MessageChannel) = this.also { this.channel = channel }
-    protected lateinit var message: Message
-    protected var tagged : MutableList<Member?> = ArrayList<Member?>()
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     protected var jda = Bot.jda!!
     protected val guilds
         get() = jda.guilds
@@ -87,12 +91,6 @@ abstract class Command protected constructor(val name: String) {
     private val scRequiredErrMsg = "This command has to be followed by a sub-command."
     private val invalidSCErrMsg = " is not a valid sub-command."
 
-    /**
-     * The help message that is shown when using /help [command name]
-     */
-    open var helpMessage: String? = null
-        protected set
-    protected var usedCommandName: String? = null
     protected lateinit var slashCommandData: SlashCommandData
 
     /**
@@ -157,11 +155,11 @@ abstract class Command protected constructor(val name: String) {
      * Update the help message to reflect all the automatically gathered information about this command.
      */
     private fun setHelpMessage() {
-        helpMessage = if (subCommands.size == 0) String.format(
-            "Command name: %s\nParameters: %s\n",
-            name,
-            this.args
-        ) else """The command "${name}" ${if (subCommandRequired) "has to" else "can"} be followed by a sub-command
+        helpMessage =
+            if (subCommands.size == 0)
+                """"Command name: $name 
+                    Parameters: ${args}""".trimIndent()
+            else """The command "${name}" ${if (subCommandRequired) "has to" else "can"} be followed by a sub-command
                 ${if (subCommandRequired) "" else "When used without a subcommand $noSubCommandDescription"}
                 The possible sub-commands are: 
                 ${subCommands.keys}
@@ -250,7 +248,6 @@ abstract class Command protected constructor(val name: String) {
     }
     operator fun invoke(event : MessageReceivedEvent) = setEvent(event)(Parser.parse(event.message.contentRaw))
     open operator fun invoke(commandText: CommandContainer){
-        usedCommandName = commandText.commandName
         args = commandText.args
         if (treatAsSubCommand(commandText)) {
             commandText.commandName = args[0]
@@ -262,7 +259,7 @@ abstract class Command protected constructor(val name: String) {
     protected abstract operator fun invoke(args : Array<String>)
     fun say(message: Message) = Bot send message in channel
 
-    protected fun makeInteractible() = slashCommandData.also { isInteractible = true }
+    protected fun makeInteractive() = slashCommandData.apply { description = brief }.also { isInteractible = true }
 
     open val commandData: CommandData
         get() = slashCommandData
