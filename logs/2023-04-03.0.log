@@ -1,0 +1,31 @@
+2023-04-03 09:21:54,882 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-04-03 09:21:54,905 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-04-03 09:21:54,905 INFO b.m.Console [Thread-5] The console is active
+2023-04-03 09:21:54,909 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-04-03 09:22:48,498 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-04-03 09:22:49,338 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-04-03 09:22:49,568 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-04-03 09:22:49,752 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-04-03 09:22:49,801 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-04-03 09:22:50,413 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-04-03 09:22:51,352 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-04-03 09:22:51,688 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 25/3
+2023-04-03 09:22:51,688 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 3/4
+2023-04-03 09:53:26,320 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:Spartak(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:me(id=336843279612248065))
+2023-04-03 15:55:03,666 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-04-03 15:55:03,686 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-04-03 15:55:03,687 INFO b.m.Console [Thread-5] The console is active
+2023-04-03 15:55:03,690 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-04-03 15:55:58,865 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-04-03 15:55:59,745 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-04-03 15:55:59,973 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-04-03 15:56:00,247 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-04-03 15:56:00,265 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-04-03 15:56:00,862 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-04-03 15:56:01,542 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-04-03 15:56:01,881 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 3/4
+2023-04-03 15:56:01,882 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 3/4
+2023-04-03 15:56:39,698 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:Spartak(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:me(id=336843279612248065))
+2023-04-03 16:12:32,985 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:Spartak(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:me(id=336843279612248065))

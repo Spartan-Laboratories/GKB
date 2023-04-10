@@ -1,4 +1,6 @@
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -7,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
@@ -81,7 +84,28 @@ private fun stateField(bot:Bot){
 @Composable
 private fun commandsField(bot:Bot){
     var uptime by remember { bot.formattedUptime}
-    Text(uptime)
+    var commandList by remember { mutableStateOf(Bot.commandNameList) }
+    LazyColumn {
+        items(Bot.commandNameList.size) { index ->
+            commandField(Bot.commandNameList[index])
+        }
+    }
+}
+@Composable
+private fun commandField(commandName:String){
+    var buttonColor by remember { mutableStateOf(Color.Green) }
+    Button( border = BorderStroke(4.dp, Color.Green),
+            onClick = {
+                Bot.commandActiveStatus[commandName] = !Bot.commandActiveStatus[commandName]!!
+                when(Bot.commandActiveStatus[commandName]){
+                    false   -> buttonColor = Color.Red
+                    true    -> buttonColor = Color.Green
+                    else    -> buttonColor = Color.Black
+                }
+            }
+    ){
+        Text(commandName)
+    }
 }
 @Composable
 private fun dateField(date:String){

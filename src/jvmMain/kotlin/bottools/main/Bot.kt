@@ -39,6 +39,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.function.Predicate
+import kotlin.collections.HashMap
 
 private val formatter = DateTimeFormatter.ofPattern("hh:mm:ss", Locale.getDefault())
 private var log = LoggerFactory.getLogger(Bot::class.java)
@@ -196,6 +197,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         //private static Console guiConsole = new GuiConsole();
         private lateinit var listener: BotListener
         private var running = false
+        val commandActiveStatus = HashMap<String, Boolean>()
         private fun createAllSlashCommands() = jda!!.updateCommands().addCommands(interactions).complete()
 
         private fun handleCommand(commandText: CommandContainer, event: MessageReceivedEvent) {
@@ -241,6 +243,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         }
 
         fun getCommand(name: String): Command = commands[name]!!
+
     }
 }
 fun <T>evaluateList(list:Iterable<T>, validator: Predicate<T>):Boolean{
