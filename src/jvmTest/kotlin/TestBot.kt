@@ -97,7 +97,7 @@ private fun commandsField(bot:Bot){
         modifier = Modifier.border(width = 5.dp, color = Color.Black, shape = RectangleShape),
     ) {
         Text("Command name list size: $commandNameListSize")
-        LazyColumn (modifier = Modifier.fillMaxSize().padding(5.dp)){
+        LazyColumn (modifier = Modifier.fillMaxSize().padding(7.dp)){
             items(commandNameListSize) { index ->
                 Text(index.toString())
                 commandField(commandNames[index])

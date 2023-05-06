@@ -54,9 +54,10 @@ abstract class Command protected constructor(val name: String) {
     protected abstract val brief : String
     protected abstract val details: String
     protected open val detailStatement = ""
-    private val basicDescription = "$name: $brief"
-    open var helpMessage: String? = "$basicDescription/n$details"
-        protected set
+    private val basicDescription
+        get() = "$name: $brief"
+    val helpMessage: String
+        get() = "$basicDescription/n$details"
     /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     /*---------EVENT INFORMATION------------------------*/
@@ -110,7 +111,6 @@ abstract class Command protected constructor(val name: String) {
      */
     init {
         resetEmbedBuilder()
-        setHelpMessage()
         generateSlashCommandData()
     }
 
@@ -151,21 +151,6 @@ abstract class Command protected constructor(val name: String) {
      */
     protected fun say(secondsDelay: Int, message: String?) = channel.sendMessage(message!!).completeAfter(secondsDelay.toLong(), TimeUnit.SECONDS)
 
-    /**
-     * Update the help message to reflect all the automatically gathered information about this command.
-     */
-    private fun setHelpMessage() {
-        helpMessage =
-            if (subCommands.size == 0)
-                """"Command name: $name 
-                    Parameters: ${args}""".trimIndent()
-            else """The command "${name}" ${if (subCommandRequired) "has to" else "can"} be followed by a sub-command
-                ${if (subCommandRequired) "" else "When used without a subcommand $noSubCommandDescription"}
-                The possible sub-commands are: 
-                ${subCommands.keys}
-                To show a help message for a specific sub-command use: /help ${name} [sub-command name]""".trimIndent()
-    }
-
     protected fun treatAsSubCommand(commandData: CommandContainer): Boolean =
         if(commandData.args.isEmpty()) subCommandRequired
             .also { if (subCommandRequired) showSCErrorMessage("${commandData.commandName} must be followed by a valid subcommand") }
@@ -201,7 +186,6 @@ abstract class Command protected constructor(val name: String) {
 
     fun addSubCommand(command: SubCommand) {
         subCommands[command.name] = command
-        setHelpMessage()
     }
 
     protected fun removeSubCommand(commandName: String) = subCommands.remove(commandName)

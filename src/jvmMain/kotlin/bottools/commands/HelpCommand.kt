@@ -4,10 +4,11 @@ import bottools.main.Bot
 import net.dv8tion.jda.api.interactions.commands.OptionType
 
 class HelpCommand : Command("help") {
+    override val brief = "See what this bot can do"
     override val details = "Gives a detailed description of this Bot's capabilities"
     init {
         println("starting help command initialization")
-        brief = "See what this bot can do"
+        //brief = "See what this bot can do"
         makeInteractive()
         slashCommandData.addOption(OptionType.STRING, "commandname", "the name of the command which you need help with", true)
         //+ Option(name = "command name", description = "the name of the command which you need help with", required = true)

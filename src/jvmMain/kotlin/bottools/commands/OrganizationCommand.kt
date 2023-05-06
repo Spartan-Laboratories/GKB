@@ -10,8 +10,6 @@ class OrganizationCommand(name: String, parent:Command) : SubCommand(name, paren
     data class orgData(val alias: String, val trueName: String)
     init {
         subCommandRequired = true
-        helpMessage = "Can be followed by:"
-
     }
 
     override fun invoke(commandData: CommandContainer){
@@ -23,7 +21,6 @@ class OrganizationCommand(name: String, parent:Command) : SubCommand(name, paren
 
     fun addCommand(alias: String, command: String = alias): OrganizationCommand {
         orgCommands[alias] = command
-        helpMessage = "$helpMessage $command"
         if(command !in parent.subCommands.keys)
             throw IllegalArgumentException("Organization attempted to add subcommand: $command, which is not a valid subcommand of it's parent: ${parent.name}")
         parent.subCommands[command]!!.addOrganization(this, alias)

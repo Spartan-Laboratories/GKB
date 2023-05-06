@@ -41,3 +41,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 key.txt
+logs/spring-boot-logger.log
