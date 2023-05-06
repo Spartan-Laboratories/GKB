@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 
 abstract class CheckValueService protected constructor(private val packetName: String)
     : OnlineCommand(packetName.replace("/","").replace(" ",""),ServicePacketReader(packetName).uRL), Runnable {
-    override val brief = "service"
+    override var brief = "service"
     override val details = ""
     private var interval = 0
     protected lateinit var onChange: TriggerAction

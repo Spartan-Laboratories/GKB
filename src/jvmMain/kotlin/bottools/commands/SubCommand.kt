@@ -41,8 +41,8 @@ abstract class SubCommand(name: String, protected val parent: Command) : Command
         val name = name.lowercase()
 
         when(getNestLevel(parent)){
-            1 -> parent.addToSlashCommandData(SubcommandGroupData(name, description!!).also{subcommandGroupData = it})
-            2 -> SubcommandData(name, description!!).let {
+            1 -> parent.addToSlashCommandData(SubcommandGroupData(name, basicDescription).also{subcommandGroupData = it})
+            2 -> SubcommandData(name, basicDescription!!).let {
                 subcommandData = it
                 (parent as SubCommand).addToSCGData(it)
             }
@@ -53,7 +53,7 @@ abstract class SubCommand(name: String, protected val parent: Command) : Command
     fun addToSCGData(subcommandData: SubcommandData)  = subcommandGroupData!!.addSubcommands(subcommandData)
     fun addToSCData(optionData: OptionData)          = subcommandData!!.addOptions(optionData)
 
-    private fun getOptionData(name: String) = OptionData(OptionType.STRING, name, description!!)
+    private fun getOptionData(name: String) = OptionData(OptionType.STRING, name, basicDescription!!)
     override infix fun getOption(optionName: String): OptionMapping? = parent.getOption(optionName)
 
     override fun addOption(option: Option) = this.also{
@@ -66,4 +66,8 @@ abstract class SubCommand(name: String, protected val parent: Command) : Command
 
     override infix fun reply(message: String) = parentCommand reply message
     override operator fun plus(option:Option) = super.plus(option) as SubCommand
+    override fun updateInteractionDescription(){
+        subcommandGroupData?.description = basicDescription
+        subcommandData?.description = basicDescription
+    }
 }

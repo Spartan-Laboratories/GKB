@@ -9,5 +9,8 @@ class MethodCommand(
     parent : Command
 ): SubCommand(name, parent) {
     override val details: String = ""
+    init {
+        //this.brief = brief
+    }
     override fun invoke(args: Array<String>) = onExecute.accept(args)
 }

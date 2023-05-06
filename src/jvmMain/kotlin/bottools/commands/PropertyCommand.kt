@@ -6,7 +6,7 @@ import kotlin.reflect.KMutableProperty
 open class PropertyCommand(private val property:KMutableProperty<String?>, parent:Command, valueType:String="string"):SubCommand(property.name, parent) {
 
     protected val propertyName = property.name.lowercase()
-    final override val brief = "View of change $propertyName"
+    final override var brief = "View of change $propertyName"
     final override val details = "Allows you to see what is the current value of $propertyName or to change it."
 
     protected open val getCommand:SubCommand = MethodCommand(::reply, "get$propertyName", "shows the current value of $propertyName", parent)

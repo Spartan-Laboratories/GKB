@@ -22,6 +22,7 @@ import java.io.File
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import kotlin.collections.set
+import kotlin.properties.Delegates
 
 /**
  * The command superclass that all command subclasses inherit from. When creating a new command subclass it must
@@ -51,12 +52,24 @@ import kotlin.collections.set
 abstract class Command protected constructor(val name: String) {
     /*--------------I AM--------------------------------*/
 
-    protected abstract val brief : String
+    protected open var brief : String by Delegates.observable(""){ property, oldvalue, newValue ->
+        println("The command $name has just received a new brief and is about to update its basic description")
+        println("The old brief was $oldvalue, the new brief is $newValue")
+        updateInteractionDescription()
+    }
+    protected open fun updateInteractionDescription(){
+        println("The current slash command data description is: ${slashCommandData.description}")
+        println("The current basic description is: $basicDescription")
+        slashCommandData.description = basicDescription
+        println("The slash command data description has been updated to: ${slashCommandData.description}")
+    }
     protected abstract val details: String
     protected open val detailStatement = ""
-    private val basicDescription = "$name: $brief"
-    open var helpMessage: String? = "$basicDescription/n$details"
+    protected val basicDescription
+        get() = "$name: $brief"
+    open var helpMessage: String? = ""
         protected set
+        get() = "$basicDescription/n${details?:' '}"
     /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     /*---------EVENT INFORMATION------------------------*/
@@ -87,11 +100,10 @@ abstract class Command protected constructor(val name: String) {
     protected var subCommandRequired = false
     var isInteractible = false
         private set
-    private var noSubCommandDescription: String? = null
     private val scRequiredErrMsg = "This command has to be followed by a sub-command."
     private val invalidSCErrMsg = " is not a valid sub-command."
 
-    protected lateinit var slashCommandData: SlashCommandData
+    protected var slashCommandData = Commands.slash(name, "todo: write description")
 
     /**
      * The message event that contains the message that triggered this command
@@ -109,8 +121,8 @@ abstract class Command protected constructor(val name: String) {
      * Otherwise various help message and error report bugs will occur.
      */
     init {
+        println("starting initialization of the $name command")
         resetEmbedBuilder()
-        setHelpMessage()
         generateSlashCommandData()
     }
 
@@ -151,21 +163,6 @@ abstract class Command protected constructor(val name: String) {
      */
     protected fun say(secondsDelay: Int, message: String?) = channel.sendMessage(message!!).completeAfter(secondsDelay.toLong(), TimeUnit.SECONDS)
 
-    /**
-     * Update the help message to reflect all the automatically gathered information about this command.
-     */
-    private fun setHelpMessage() {
-        helpMessage =
-            if (subCommands.size == 0)
-                """"Command name: $name 
-                    Parameters: ${args}""".trimIndent()
-            else """The command "${name}" ${if (subCommandRequired) "has to" else "can"} be followed by a sub-command
-                ${if (subCommandRequired) "" else "When used without a subcommand $noSubCommandDescription"}
-                The possible sub-commands are: 
-                ${subCommands.keys}
-                To show a help message for a specific sub-command use: /help ${name} [sub-command name]""".trimIndent()
-    }
-
     protected fun treatAsSubCommand(commandData: CommandContainer): Boolean =
         if(commandData.args.isEmpty()) subCommandRequired
             .also { if (subCommandRequired) showSCErrorMessage("${commandData.commandName} must be followed by a valid subcommand") }
@@ -201,7 +198,6 @@ abstract class Command protected constructor(val name: String) {
 
     fun addSubCommand(command: SubCommand) {
         subCommands[command.name] = command
-        setHelpMessage()
     }
 
     protected fun removeSubCommand(commandName: String) = subCommands.remove(commandName)
@@ -215,16 +211,7 @@ abstract class Command protected constructor(val name: String) {
         return subCommands[name]
     }
 
-    /**
-     * Sets the description of this command's action in the case that it is used without a sub-command.
-     * It is recommended that this method is used by all commands that do not require a sub-command,
-     * otherwise their description that is shown by /help [command name] will be blank.
-     * Note that by default sub-commands are not required, to change that call [.isSubCommandRequired]
-     * @param description - a description of what this command does when used without a sub-command
-     */
-    protected fun setNoSubCommandDescription(description: String?) {
-        noSubCommandDescription = description
-    }
+
 
     protected fun validateSubCommand(args: Array<String>): Boolean = isValidSubCommand(args[0])
 
@@ -259,7 +246,9 @@ abstract class Command protected constructor(val name: String) {
     protected abstract operator fun invoke(args : Array<String>)
     fun say(message: Message) = Bot send message in channel
 
-    protected fun makeInteractive() = slashCommandData.apply { description = brief }.also { isInteractible = true }
+    protected fun makeInteractive() = this.apply{slashCommandData.description = basicDescription}.also{
+        isInteractible = true
+    }
 
     open val commandData: CommandData
         get() = slashCommandData
@@ -293,15 +282,6 @@ abstract class Command protected constructor(val name: String) {
         return this
     }
 
-    protected open val description: String?
-        get() {
-            return helpMessage.let{
-                if(it!!.length > 100)
-                    it.substring(0, it.indexOf("\n"))
-                else it
-            }
-        }
-
     protected open fun addOption(option: Option): Command  = this.also{
         slashCommandData.addOptions(option)
     }
@@ -319,7 +299,7 @@ abstract class Command protected constructor(val name: String) {
     protected open fun generateSlashCommandData() {
         slashCommandData = Commands.slash(
             name.lowercase(),
-            description!!
+            basicDescription
         )
     }
 
