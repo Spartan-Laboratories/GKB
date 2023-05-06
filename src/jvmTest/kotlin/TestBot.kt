@@ -1,4 +1,6 @@
+
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
@@ -6,13 +8,14 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.window.Window
-import androidx.compose.ui.window.application
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
 import bottools.main.Bot
 import bottools.plugins.Plugins
 import java.util.concurrent.CompletableFuture.runAsync
@@ -32,7 +35,7 @@ private fun BotUI(){
     var statusText by remember{mutableStateOf("Not started")}
     var botStarted by remember{ mutableStateOf(false) }
     var readyToken: Boolean = false
-    var readyTokenState = remember{mutableStateOf(readyToken)}
+    var readyTokenState = remember{mutableStateOf(false)}
     var bot by remember{ mutableStateOf(lazy{KotBot(readyTokenState)})}
     MaterialTheme {Row {
         Column {
@@ -77,17 +80,28 @@ private fun BotUI(){
 @Composable
 private fun stateField(bot:Bot){
     Column {
-        commandsField(bot)
+        Row{
+            Spacer(Modifier.width(40.dp))
+            commandsField(bot)
+        }
         dateField(bot.centralProcess?.currentDate ?: "not started")
     }
 }
 @Composable
 private fun commandsField(bot:Bot){
     var uptime by remember { bot.formattedUptime}
-    var commandList by remember { mutableStateOf(Bot.commandNameList) }
-    LazyColumn {
-        items(Bot.commandNameList.size) { index ->
-            commandField(Bot.commandNameList[index])
+    var commandList by remember { mutableStateOf(Bot.commands) }
+    var commandNameListSize by remember { mutableStateOf(commandList.size) }
+    var commandNames by remember { mutableStateOf(commandList.keys.toList()) }
+    if(commandNameListSize > 0)Box(
+        modifier = Modifier.border(width = 5.dp, color = Color.Black, shape = RectangleShape),
+    ) {
+        Text("Command name list size: $commandNameListSize")
+        LazyColumn (modifier = Modifier.fillMaxSize().padding(5.dp)){
+            items(commandNameListSize) { index ->
+                Text(index.toString())
+                commandField(commandNames[index])
+            }
         }
     }
 }
@@ -117,6 +131,7 @@ class KotBot(tokenState:MutableState<Boolean>) : Bot(tokenState) {
         Plugins.`REACTION ROLES`()
         Plugins.Math()
         Bot createCommand DotaCommand()
+        Bot createCommand PalOfExile()
     }
 
     override fun applyDailyUpdate(currentDate: String?) {

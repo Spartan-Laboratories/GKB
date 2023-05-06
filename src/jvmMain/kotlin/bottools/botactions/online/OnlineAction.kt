@@ -53,6 +53,8 @@ fun connect(URL: String?): Boolean = connector.open(URL!!)
 
 fun open(URL: String, cookieList:Map<String, String>):String =
     Jsoup.connect(URL).cookies(cookieList).execute().body()
+fun getConnectionCode(URL: String, cookieList:Map<String, String> = emptyMap()) =
+    Jsoup.connect(URL).cookies(cookieList).execute().statusCode()
 fun skrape(URL:String) = skrape(HttpFetcher){
     request{url = URL }
     response{this}

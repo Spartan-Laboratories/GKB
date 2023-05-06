@@ -1,5 +1,6 @@
 package bottools.commands
 
+import bottools.botactions.online.getConnectionCode
 import bottools.botactions.online.readCookies
 import bottools.dataprocessing.B
 import bottools.dataprocessing.SourceKeyParser
@@ -80,6 +81,7 @@ protected constructor(name: String, protected var primaryAddress: String = "") :
     protected infix fun connect(address: String) = bottools.botactions.online.open(address, cookieMap)
     protected fun connectViaSkrape() = this connectViaSkrape primaryAddress
     protected infix fun connectViaSkrape(address: String) = bottools.botactions.online.openViaSkrape(address)
+    protected infix fun testConnection(URL: String) = getConnectionCode(URL)
     protected fun open(address:String, executeWithURLData:()->Unit){
         data = connect(address)
         executeWithURLData()

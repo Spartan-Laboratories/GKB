@@ -1,9 +1,7 @@
 package bottools.main
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import bottools.botactions.contains
 import bottools.botactions.say
 import bottools.commands.Command
@@ -11,11 +9,6 @@ import bottools.commands.HelpCommand
 import bottools.dataprocessing.B
 import bottools.dataprocessing.D
 import bottools.main.Parser.CommandContainer
-import bottools.plugins.Plugin
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.events.interaction.command.MessageContextInteractionEvent
@@ -33,13 +26,10 @@ import java.io.File
 import java.io.FileReader
 import java.io.IOException
 import java.time.Instant
-import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
-import java.util.concurrent.TimeUnit
 import java.util.function.Predicate
-import kotlin.collections.HashMap
 
 private val formatter = DateTimeFormatter.ofPattern("hh:mm:ss", Locale.getDefault())
 private var log = LoggerFactory.getLogger(Bot::class.java)
@@ -189,12 +179,10 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         private val interactions = ArrayList<CommandData>()
         val responder by lazy { listener.responder }
 
-        //var guildManager: GuildManager = GuildManager
-        var commandNameList = ArrayList<String>()
+        //var commandNameList = ArrayList<String>()
         var keys = arrayOfNulls<String>(3)
         private lateinit var console: Console
 
-        //private static Console guiConsole = new GuiConsole();
         private lateinit var listener: BotListener
         private var running = false
         val commandActiveStatus = HashMap<String, Boolean>()
@@ -239,6 +227,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
 
         infix fun createCommand(command: Command) {
             commands[command.name] = command
+            commandActiveStatus[command.name] = true
             if (command.isInteractible) interactions.add(command.commandData)
         }
 

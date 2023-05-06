@@ -1,0 +1,262 @@
+2023-05-04 09:41:28,602 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:41:28,609 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:41:28,609 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:41:28,610 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 09:42:04,441 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 09:42:05,149 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 09:42:05,384 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 09:42:05,621 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 09:42:05,676 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 09:42:06,139 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 09:42:06,794 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 09:42:07,710 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 6/4
+2023-05-04 09:42:07,711 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 09:43:36,239 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:43:36,246 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:43:36,246 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:43:36,246 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 09:44:11,382 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 09:44:12,074 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 09:44:12,282 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 09:44:12,586 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 09:44:12,603 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 09:44:12,966 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 09:44:13,564 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 09:44:13,871 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 09:44:13,872 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 09:48:44,279 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:48:44,284 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:48:44,284 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:48:44,285 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 09:49:19,466 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 09:49:20,136 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 09:49:20,382 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 09:49:20,640 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 09:49:20,661 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 09:49:21,042 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 09:49:21,649 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 09:49:21,939 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 09:49:21,939 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 09:56:19,728 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:56:19,732 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:56:19,733 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:56:19,733 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 09:56:55,105 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 09:56:55,835 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 09:56:56,057 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 09:56:56,261 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 09:56:56,300 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 09:56:56,683 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 09:56:57,274 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 09:56:57,578 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 09:56:57,578 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 09:57:59,309 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:57:59,315 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:57:59,315 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:57:59,316 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 09:58:36,568 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 09:58:37,315 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 09:58:37,551 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 09:58:37,786 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 09:58:37,845 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 09:58:38,334 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 09:58:39,098 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 09:58:39,396 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 09:58:39,398 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 09:59:42,946 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 09:59:42,953 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 09:59:42,954 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 09:59:42,954 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 10:00:18,925 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 10:00:19,589 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 10:00:19,798 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 10:00:20,063 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 10:00:20,067 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 10:00:20,550 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 10:00:21,176 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 10:00:21,568 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 10:00:21,569 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 10:01:20,956 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 10:01:20,961 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 10:01:20,963 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 10:01:20,963 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 10:01:55,968 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 10:01:56,650 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 10:01:56,865 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 10:01:57,094 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 10:01:57,113 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 10:01:57,500 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 10:01:58,088 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 10:01:58,442 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 10:01:58,443 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 10:04:02,023 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 10:04:02,028 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 10:04:02,029 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 10:04:02,029 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 10:04:37,936 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 10:04:38,646 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 10:04:38,869 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 10:04:39,196 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 10:04:39,246 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 10:04:39,678 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 10:04:40,300 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 10:04:40,631 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 10:04:40,631 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 10:06:36,301 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 10:06:36,306 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 10:06:36,306 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 10:06:36,308 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 10:07:11,763 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 10:07:12,470 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 10:07:12,690 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 10:07:12,950 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 10:07:13,002 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 10:07:13,376 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 10:07:14,060 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 10:07:14,518 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 10:07:14,518 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 13:39:24,499 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 13:39:24,504 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 13:39:24,505 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 13:39:24,505 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 13:39:59,706 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 13:40:00,342 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 13:40:00,568 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 13:40:00,858 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 13:40:00,871 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 13:40:01,254 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 13:40:01,820 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 13:40:02,117 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 13:40:02,119 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 13:58:14,244 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 13:58:14,249 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 13:58:14,249 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 13:58:14,251 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 13:58:48,899 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 13:58:49,578 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 13:58:49,803 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 13:58:50,040 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 13:58:50,102 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 13:58:50,455 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 13:58:51,326 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 13:58:51,585 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 13:58:51,585 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 14:03:18,710 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 14:03:18,717 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 14:03:18,717 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 14:03:18,717 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 14:04:03,674 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 14:04:04,363 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 14:04:04,590 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 14:04:04,856 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 14:04:04,894 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 14:04:05,312 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 14:04:05,969 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 14:04:06,327 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 14:04:06,327 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 14:07:59,224 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 14:07:59,229 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 14:07:59,229 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 14:07:59,229 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 14:08:35,194 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 14:08:35,825 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 14:08:36,039 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 14:08:36,307 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 14:08:36,355 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 14:08:36,725 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 14:08:37,314 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 14:08:37,578 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 14:08:37,578 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 21:45:55,386 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 21:45:55,393 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 21:45:55,394 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 21:45:55,394 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 21:46:29,711 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 21:46:30,485 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 21:46:30,731 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-WriteThread] Connected to WebSocket
+2023-05-04 21:46:31,013 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 21:46:31,077 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 21:46:31,465 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 21:46:32,225 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 21:46:32,498 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 21:46:32,499 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 21:47:51,150 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 21:47:51,155 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 21:47:51,155 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 21:47:51,156 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 21:48:26,154 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 21:48:26,826 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 21:48:27,064 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 21:48:27,344 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 21:48:27,368 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 21:48:27,827 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 21:48:28,455 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 21:48:28,925 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 21:48:28,926 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 21:49:02,308 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:Spartak(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:me(id=336843279612248065))
+2023-05-04 21:49:04,102 ERROR n.d.j.a.JDA [JDA MainWS-ReadThread] One of the EventListeners had an uncaught exception
+kotlin.NotImplementedError: An operation is not implemented: Not yet implemented
+	at PalOfExile.invoke(PalOfExile.kt:16)
+	at bottools.commands.Command.invoke(Command.kt:257)
+	at bottools.commands.OrganizationCommand.invoke(OrganizationCommand.kt:19)
+	at bottools.commands.Command.invoke(Command.kt:255)
+	at bottools.commands.Command.invoke(Command.kt:282)
+	at bottools.main.Bot$Companion.handleCommand(Bot.kt:229)
+	at bottools.main.Bot$Companion.access$handleCommand(Bot.kt:185)
+	at bottools.main.Bot$addInteractionResponses$2.perform(Bot.kt:130)
+	at bottools.main.Bot$addInteractionResponses$2.perform(Bot.kt:130)
+	at bottools.main.Responder.lambda$actOn$1(Responder.java:38)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at bottools.main.Responder.actOn(Responder.java:38)
+	at bottools.main.ResponderInfixExtensionsKt.reactTo(ResponderInfixExtensions.kt:5)
+	at bottools.main.BotListener.onSlashCommandInteraction(BotListener.kt:40)
+	at net.dv8tion.jda.api.hooks.ListenerAdapter.onEvent(ListenerAdapter.java:424)
+	at net.dv8tion.jda.api.hooks.InterfacedEventManager.handle(InterfacedEventManager.java:96)
+	at net.dv8tion.jda.internal.hooks.EventManagerProxy.handleInternally(EventManagerProxy.java:88)
+	at net.dv8tion.jda.internal.hooks.EventManagerProxy.handle(EventManagerProxy.java:70)
+	at net.dv8tion.jda.internal.JDAImpl.handleEvent(JDAImpl.java:171)
+	at net.dv8tion.jda.internal.handle.InteractionCreateHandler.handleCommand(InteractionCreateHandler.java:112)
+	at net.dv8tion.jda.internal.handle.InteractionCreateHandler.handleInternally(InteractionCreateHandler.java:83)
+	at net.dv8tion.jda.internal.handle.SocketHandler.handle(SocketHandler.java:39)
+	at net.dv8tion.jda.internal.requests.WebSocketClient.onDispatch(WebSocketClient.java:984)
+	at net.dv8tion.jda.internal.requests.WebSocketClient.onEvent(WebSocketClient.java:870)
+	at net.dv8tion.jda.internal.requests.WebSocketClient.handleEvent(WebSocketClient.java:848)
+	at net.dv8tion.jda.internal.requests.WebSocketClient.onBinaryMessage(WebSocketClient.java:1023)
+	at com.neovisionaries.ws.client.ListenerManager.callOnBinaryMessage(ListenerManager.java:385)
+	at com.neovisionaries.ws.client.ReadingThread.callOnBinaryMessage(ReadingThread.java:276)
+	at com.neovisionaries.ws.client.ReadingThread.handleBinaryFrame(ReadingThread.java:996)
+	at com.neovisionaries.ws.client.ReadingThread.handleFrame(ReadingThread.java:755)
+	at com.neovisionaries.ws.client.ReadingThread.main(ReadingThread.java:108)
+	at com.neovisionaries.ws.client.ReadingThread.runMain(ReadingThread.java:64)
+	at com.neovisionaries.ws.client.WebSocketThread.run(WebSocketThread.java:45)
+2023-05-04 21:53:07,667 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Begun bot initialization
+2023-05-04 21:53:07,672 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Starting bot creation
+2023-05-04 21:53:07,672 INFO b.m.Console [Thread-5] The console is active
+2023-05-04 21:53:07,673 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Successfully read bot key.
+Starting jda building.
+2023-05-04 21:53:42,506 INFO b.m.Responder [ForkJoinPool.commonPool-worker-1] Created Responder
+2023-05-04 21:53:43,131 INFO n.d.j.a.JDA [ForkJoinPool.commonPool-worker-1] Login Successful!
+2023-05-04 21:53:43,383 INFO n.d.j.i.r.WebSocketClient [JDA MainWS-ReadThread] Connected to WebSocket
+2023-05-04 21:53:43,606 INFO n.d.j.a.JDA [JDA MainWS-ReadThread] Finished Loading!
+2023-05-04 21:53:43,664 INFO b.m.Bot [ForkJoinPool.commonPool-worker-1] Completed bot creation
+2023-05-04 21:53:44,024 INFO b.b.o.Connector [ForkJoinPool.commonPool-worker-1] Connector was created successfully
+2023-05-04 21:53:44,644 INFO b.c.Command$Companion [ForkJoinPool.commonPool-worker-1] The command dota2 successfully validated connection
+2023-05-04 21:53:45,023 INFO b.m.Bot$CentralProcess [Thread-18] The last daily update was on 4/5
+2023-05-04 21:53:45,024 INFO b.m.Bot$CentralProcess [Thread-18] The current date is: 4/5
+2023-05-04 21:53:57,164 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:Spartak(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:me(id=336843279612248065))
+2023-05-04 21:54:31,724 INFO b.c.Command$Companion [JDA MainWS-ReadThread] Reaction to slash command interaction by Member:TheFloridaMan(id=249876383474384897, user=User:TheFloridaMan(id=249876383474384897), guild=Guild:Make Discord Great Again(id=252288236267765761))

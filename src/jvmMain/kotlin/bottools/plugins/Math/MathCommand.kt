@@ -1,13 +1,14 @@
 package bottools.plugins.Math
 
 import bottools.commands.Command
+import bottools.commands.Option
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.internal.utils.tuple.MutablePair
 import net.dv8tion.jda.internal.utils.tuple.Pair
 import kotlin.math.pow
 
 class MathCommand() : Command("math") {
-    override val brief = "Calculates the answer to any basic mathematical problem"
+    override var brief = "Calculates the answer to any basic mathematical problem"
     override val details = """This command is able to understand and process: operators, parenthesis, logarithms, basic trigonometric functions, and more
             Examples:\n`/math 1+3*2`\n`/math (4(5-3))^2`\n`/math sin(ln(2.718))`\n`/math log(2,16)`"""
     private val chars = charArrayOf('^', '*', '/', '+', '-')
@@ -15,7 +16,7 @@ class MathCommand() : Command("math") {
     init {
         for (c: Char in chars) operators.add(c)
 
-        makeInteractive().addOption(OptionType.STRING, "problem", "The problem that you want to solve")
+        makeInteractive() + Option(type = "string", name = "problem", description = "the problem that you want to be solved", true)
     }
 
     override fun invoke(args: Array<String>){
