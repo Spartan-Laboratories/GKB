@@ -39,7 +39,7 @@ abstract class GameStatsCommand
         //show.addCommand("id", "getid").addCommand("stats", "showstats")
     }
     protected inner class SCSetID() : SubCommand("setid", this@GameStatsCommand) {
-        override var brief = "sets the game id of the mentioned user"
+        override val brief = "sets the game id of the mentioned user"
         override val details =
             """"For example:
             `${this@GameStatsCommand.name} setid *in-game id* @forthisperson` to set the ID for the mentioned user. Or"
@@ -61,7 +61,7 @@ abstract class GameStatsCommand
     }
 
     inner class SCGetID() : SubCommand("getid", this@GameStatsCommand) {
-        override var brief: String = "Shows the recorded game ID for the mentioned user or for yourself if no user is mentioned"
+        override val brief: String = "Shows the recorded game ID for the mentioned user or for yourself if no user is mentioned"
         override val details: String = ""
         init {
             this + targetMemberOption

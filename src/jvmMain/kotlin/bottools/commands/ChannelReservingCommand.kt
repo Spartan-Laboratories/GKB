@@ -19,7 +19,7 @@ abstract class ChannelReservingCommand protected constructor(commandName: String
     abstract override fun invoke(args: Array<String>)
     protected fun preExecute() {}
     protected inner class SCReserve : SubCommand("reserve", this@ChannelReservingCommand) {
-        override var brief = "Reserves this text channel to be used exclusively by this command."
+        override val brief = "Reserves this text channel to be used exclusively by this command."
         override val details = """
                 After reserving, subcommands can be called directly.
                 Example: `/play` instead of`/music play`
@@ -38,7 +38,7 @@ abstract class ChannelReservingCommand protected constructor(commandName: String
     }
 
     protected inner class SCUnreserve : SubCommand("unreserve", this@ChannelReservingCommand) {
-        override var brief = "Removes the reservation for this channel"
+        override val brief = "Removes the reservation for this channel"
         override val details = ""
         public override fun invoke(args: Array<String>){
             reserved[guild]!!.destroy()
