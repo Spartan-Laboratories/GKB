@@ -24,7 +24,7 @@ import java.util.concurrent.CompletableFuture.runAsync
 fun main() = application{
     //KotBot()
 
-    Window(onCloseRequest = ::exitApplication){
+    Window(onCloseRequest = ::exitApplication, title = "Trump Bot"){
         BotUI()
     }
 }
@@ -97,7 +97,7 @@ private fun commandsField(bot:Bot){
         modifier = Modifier.border(width = 5.dp, color = Color.Black, shape = RectangleShape),
     ) {
         Text("Command name list size: $commandNameListSize")
-        LazyColumn (modifier = Modifier.fillMaxSize().padding(7.dp)){
+        LazyColumn (modifier = Modifier.fillMaxSize().padding(10.dp)){
             items(commandNameListSize) { index ->
                 Text(index.toString())
                 commandField(commandNames[index])

@@ -2,11 +2,11 @@ package bottools.dataprocessing
 
 import org.w3c.dom.Node
 
-class SourceKeyParser {
+class SourceKeyParser(parseKeyDocument:String = "WebParseKeys") {
     private val reader: BaseXMLReader = BaseXMLReader()
 
     init {
-        reader.setDocument("WebParseKeys.xml")
+        reader setDocument "$parseKeyDocument.xml"
     }
 
     fun getKeys(searchedName: String): KeySet {
@@ -26,6 +26,7 @@ class SourceKeyParser {
         }
         return keySet
     }
+    public infix fun setDocument(name:String) = reader setDocument "$name.xml"
 
     private fun compare(nameNode: Node, searchedName: String) = reader.getValue(nameNode) == searchedName
 

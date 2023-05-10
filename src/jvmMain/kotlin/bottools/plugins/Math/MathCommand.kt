@@ -1,8 +1,6 @@
 package bottools.plugins.Math
 
 import bottools.commands.Command
-import bottools.commands.Option
-import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.internal.utils.tuple.MutablePair
 import net.dv8tion.jda.internal.utils.tuple.Pair
 import kotlin.math.pow
@@ -16,7 +14,7 @@ class MathCommand() : Command("math") {
     init {
         for (c: Char in chars) operators.add(c)
 
-        makeInteractive() + Option(type = "string", name = "problem", description = "the problem that you want to be solved", true)
+        makeInteractive() //+ Option(type = "string", name = "problem", description = "the problem that you want to be solved", true)
     }
 
     override fun invoke(args: Array<String>){

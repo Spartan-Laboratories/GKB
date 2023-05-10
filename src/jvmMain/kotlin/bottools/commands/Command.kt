@@ -104,6 +104,7 @@ abstract class Command protected constructor(val name: String) {
     val set     by lazy { this + "set" }
     val enable  by lazy { this + "enable" }
     val disable by lazy { this + "disable" }
+    val test    by lazy { this + "test" }
 
     /**
      * The only constructor in the class. It is required that this constructor is called from the constructors of subclasses.
@@ -310,7 +311,7 @@ abstract class Command protected constructor(val name: String) {
     protected open infix fun addToSlashCommandData(subcommand: SubcommandData)          = slashCommandData.addSubcommands(subcommand)
     open infix fun addToSlashCommandData(subcommandGroup: SubcommandGroupData)          = slashCommandData.addSubcommandGroups(subcommandGroup)
     protected open infix fun addToSlashCommandData(optionData: OptionData)              = slashCommandData.addOptions(optionData)
-    protected infix operator fun plus(name: String) = OrganizationCommand(name, this)
+    protected open infix operator fun plus(name: String) = OrganizationCommand(name, this)
     protected fun resetChannel(): MessageChannel =
         (if (messageEvent != null) messageEvent!!.channel else scEvent!!.messageChannel).
         also {channel = it}

@@ -2,12 +2,13 @@ package bottools.plugins
 
 import bottools.dataprocessing.D
 import bottools.main.Bot
-import bottools.main.Bot.Companion.responder
 import bottools.main.newMessageDeleteAction
 import bottools.main.newMessageReactionAddAction
 import bottools.main.newMessageReceivedAction
 import bottools.plugins.Math.MathCommand
-import bottools.plugins.reactionroles.*
+import bottools.plugins.reactionroles.AddReactionRole
+import bottools.plugins.reactionroles.CreateMainWelcomeMessage
+import bottools.plugins.reactionroles.ReactionRoleActions
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 

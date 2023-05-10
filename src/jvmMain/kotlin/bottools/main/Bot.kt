@@ -59,10 +59,12 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
         log.info("Begun bot initialization")
         running = true
         Thread(UptimeThread(formattedUptime)).start()
+        log.info("Uptime thread created")
 
         // My systems
         console = Console()
         console.start()
+        log.info("Console created")
 
         // Bot setup
         initializeBotExistence()
@@ -71,10 +73,13 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
 
         // My Systems again
         D.updateServerDatabase() //Must be after bot and console initialization
+        log.info("The server database has been updated")
 
         //Commands
         createCommand(HelpCommand())
+        log.info("Help command has been created")
         listCommands()
+        log.info("All commands have been created")
         createAllSlashCommands()
 
         centralProcess = CentralProcess.apply{
@@ -85,7 +90,7 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
     }
 
     private fun initializeBotExistence() {
-        log.info("Starting bot creation")
+        log.info("Starting JDA creation")
         try {
             BufferedReader(FileReader(File("key.txt"))).use { keyReader ->
                 for (i in keys.indices) keys[i] = keyReader.readLine()
@@ -113,13 +118,14 @@ abstract class Bot(var tokenState: MutableState<Boolean>){
             log.error("An unknown error has occurred with the bot builder.")
             e.printStackTrace()
         }
-        log.info("Completed bot creation")
+        log.info("Completed JDA creation")
     }
     private fun addInteractionResponses(){
         responder newMessageReceivedAction              ::handleCommand
         responder newSlashCommandInteractionAction      ::handleCommand
         responder newMessageContextInteractionAction    ::handleCommand
         responder newUserContextInteractionAction       ::handleCommand
+        log.info("The default interaction responses have been created")
     }
 
     protected abstract fun listCommands()

@@ -186,5 +186,12 @@ open class BaseXMLReader : XMLReader {
     }
 
     fun nodeHasChild(parentNode: Node, child: String): Boolean = parentNode has child
+    fun writeItemsList(node:Node, categoryName:String, items:List<String>){
+        newChild(node, categoryName).apply {
+            items.forEach {
+                newChild(this,"item",it)
+            }
+        }
+    }
 }
 

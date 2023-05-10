@@ -1,58 +1,63 @@
-import androidx.compose.ui.text.capitalize
-import bottools.botactions.capitalizeEveryWord
-import bottools.botactions.online.skipLinesTo
-import bottools.commands.MethodCommand
-import bottools.commands.OnlineCommand
+
+import bottools.botactions.*
+import bottools.commands.GameStatsCommand
 import bottools.commands.Option
-import bottools.commands.OrganizationCommand
-import bottools.commands.OrganizationCommand.*
-import net.dv8tion.jda.api.utils.FileUpload
-import java.awt.Desktop
-import java.awt.Rectangle
-import java.awt.Robot
-import java.awt.image.BufferedImage
-import java.io.File
-import java.net.URL
-import javax.imageio.ImageIO
+import bottools.commands.SubCommand
+import bottools.dataprocessing.BaseXMLReader
+import bottools.dataprocessing.children
+import bottools.dataprocessing.getChild
+import bottools.main.Bot
 
-class PalOfExile() : OnlineCommand("poe") {
-    override var brief = "Your best pal in all of Oriath"
-    override val details = "Helps find Path of Exile information"
+class PalOfExile() : GameStatsCommand("poe") {
+    //override var brief = "Your best pal in all of Oriath"
+    //override var details = "Helps find Path of Exile information"
     override fun invoke(args: Array<String>) {}
-
+    private val price   = this + "price"
+    private val wiki    = this + "wiki"
+    private val currencyNames = ArrayList<String>()
     init{
-        MethodCommand(onExecute = ::showDivPic, name = "pricediv", brief = "shows the price of a divine orb in chaos", parent = this)
-        OrganizationCommand(name = "price", this).addCommand(alias = "div", command = "pricediv")
+        //MethodCommand(::wikiItem, "wikiitem", "provides a description of the item", this)+
+        //        Option(name = "itemname", type = "string", description = "which item do you want to search for?", required = true)
+        //wiki + orgData("item", "wikiitem")
+        getCurrencyNames()
+        SCPriceItem("currency","currency")
+        getShardNames()
+        SCPriceItem("shart","currency")
+        getOilNames()
+        SCPriceItem("oils","oils")
+        price and "currency" becomes "currency"
+        price and "shart" becomes "shart"
+        price and "oils" becomes "oils"
 
-        MethodCommand(::wikiItem, "wikiitem", "provides a description of the item", this)+
-                Option(name = "itemname", type = "string", description = "which item do you want to search for?", required = true)
-        this + "wiki" + orgData("item", "wikiitem")
-
+        /*
+        val `acquire currency names` = "acquirecurrencynames"
+        MethodCommand(::acquireCurrencyNames, `acquire currency names`, "$`acquire currency names` description", this)
+        test and `acquire currency names` becomes `acquire currency names`
+        */
         makeInteractive()
     }
-    private fun showDivPic(args: Array<String>){
-        Desktop.getDesktop().browse(URL("https://poe.ninja/challenge/currency/divine-orb").toURI())
-        Thread.sleep(1000)
-        //val image:BufferedImage = Robot().createScreenCapture(Rectangle(Toolkit.getDefaultToolkit().screenSize))
-        val image: BufferedImage = Robot().createScreenCapture(Rectangle().apply { x = 40; y = 100; width = 2560-x; height = 1380-y; })
 
-        ImageIO.write(image, "png", File("screenshot.png"))
-
-        val startx = 832
-        val starty = 205
-        val width = 1050
-        val height = 868
-        val endx = startx + width
-        val endy = starty + height
-
-        val cutout = BufferedImage(width,height, BufferedImage.TYPE_INT_ARGB)
-        cutout.graphics.drawImage(image, 0,0,width, height, startx, starty, endx, endy, null )
-
-        val cutoutFile = File("cutout.png")
-        ImageIO.write(cutout, "png", cutoutFile)
-        //show(cutoutFile)
-        reply?.addFiles(FileUpload.fromData(cutoutFile))?.complete()
+    private inner class SCPriceItem(searchName:String, val ninjaName:String): SubCommand(searchName,this@PalOfExile) {
+        override val brief      = "get the price of a specific $searchName"
+        override val details    = "TODO: write detailed description here"
+        private final val optionName = "${name}type"
+        val specificItem = Option("string", optionName, "the name of the item that you want to look up", true)
+        init{
+            for(index in 0..Math.min(currencyNames.size - 1, 24))
+                currencyNames[index].let { specificItem.addChoice(it,it) }
+            addOption(specificItem)
+        }
+        override fun invoke(args:Array<String>){
+            val itemName = getOption(optionName)!!.asString
+            reply("Looking up the item: $itemName from the category: $name")
+            val inSiteName = itemName.replace(" ","-")
+            val screenshot = screenshotBrowser("https://poe.ninja/challenge/$ninjaName/$inSiteName")
+            val crop = cropImage(screenshot,832,205,1050,868)
+            val imageFile = saveImage(crop,"src/jvmTest/resources/screenshot")
+            Bot send imageFile in channel
+        }
     }
+
     private fun wikiItem(itemName:Array<String>){
         val itemName = getOption("itemname")?.asString?.capitalizeEveryWord()?.replace(' ','_')
         if(itemName.isNullOrBlank())reply("Could not find the specified item")
@@ -60,5 +65,57 @@ class PalOfExile() : OnlineCommand("poe") {
         open(address){
             reply(data)
         }
+    }
+    private fun getCurrencyNames() = acquireFromWiki("Currency#Basic_currency",::basicCurrency)
+    private fun getShardNames() = acquireFromWiki("Currency#Basic_currency",::shardCurrency)
+    private fun getOilNames(){
+        currencyNames.clear()
+        val reader = BaseXMLReader()
+        reader setDocument "src/jvmTest/resources/PoECurrencyGroups.xml"
+        reader.root.getChild("oils")!!.children().forEach {
+            currencyNames.add("${reader.getValue(it)} oil")
+        }
+    }
+    private fun basicCurrency(){
+        val keyName = "currencyitems"
+        while (true) {
+            mapValueByKey(keyName)
+            val currentItem = valueMap[keyName]
+            if(currentItem == "Chaos Orb")
+                continue
+            if(currentItem!!.contains("Shard"))
+                break
+            currencyNames.add(valueMap["currencyitems"]!!
+                .lowercase().replace("'",""))
+        }
+    }
+    private fun shardCurrency(){
+        val keyName = "currencyitems"
+        while (true) {
+            mapValueByKey(keyName)
+            if (valueMap[keyName]!!.contains("Shard"))
+                currencyNames.add(
+                    valueMap[keyName]!!
+                        .lowercase().replace("'", "")
+                )
+            if(!valueMap[keyName]!![0].isLetter())
+                break
+        }
+    }
+    private fun acquireFromWiki(wikipage:String, itemSearchFun:()->Unit) {
+        currencyNames.clear()
+        keyParser setDocument "src/jvmTest/resources/PoECurrencyKeys"
+        try {
+            open("https://www.poewiki.net/wiki/$wikipage") {
+                itemSearchFun.invoke()
+            }
+        } catch (e: Exception) {
+        }
+    }
+    private fun writeGroup(groupName:String){
+        val reader = BaseXMLReader()
+        reader setDocument "src/jvmTest/resources/PoECurrencyGroups.xml"
+        val root = reader.root
+        reader.writeItemsList(root, groupName, currencyNames)
     }
 }

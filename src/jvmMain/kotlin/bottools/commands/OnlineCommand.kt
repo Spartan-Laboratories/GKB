@@ -16,7 +16,7 @@ abstract class OnlineCommand
  */
 protected constructor(name: String, protected var primaryAddress: String = "") : Command(name) {
     protected val valueMap = HashMap<String, String>()
-    private val keyParser = SourceKeyParser()
+    protected val keyParser = SourceKeyParser()
     protected lateinit var data : String
     private val cookieList by lazy { B/"Cookies"/name}
     private val cookieMap

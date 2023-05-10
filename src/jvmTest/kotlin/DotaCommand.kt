@@ -138,6 +138,7 @@ class DotaCommand: GameStatsCommand("dota2","https://www.dotabuff.com") {
             cutToAfter("</a></div></div>")
             if (!data.startsWith("<div class=\"match-item-with-time")) return i
         }
+
         return 6
     }
 }
